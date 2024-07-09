@@ -5,11 +5,12 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 from clinic import views
-from clinic.views import home, about, Appointment, Contact, Feature, Service, Team, Testimonial, error
+from clinic.views import home, about, Appointment, Contact, Feature, Service, Team, Testimonial, error, mainpage
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
+    path('index.html', mainpage, name='main page'),
     path('about.html', about, name='about'),
     path('appointment.html', Appointment, name='appointment'),
     path('contact.html', Contact, name='contact'),
