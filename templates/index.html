@@ -32,6 +32,52 @@
 
     <!-- Template Stylesheet -->
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <style>
+        .feedback-form {
+            background-color: #e6f2ff; /* Light sky blue background */
+            border: 2px solid #007bff;
+            color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            width: 50%;
+            margin: 0 auto 50px;
+            box-shadow: 0 0 10px rgba(0,123,255,0.1); /* Subtle shadow for depth */
+        }
+        .feedback-form input,
+        .feedback-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #007bff;
+            border-radius: 5px;
+            background-color: #ffffff; /* White background for contrast */
+        }
+        .feedback-form button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .feedback-form button:hover {
+            background-color: #0056b3;
+        }
+        .testimonial-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .testimonial-item {
+            width: 30%;
+            margin-bottom: 30px;
+            border: 1px solid #007bff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+    </style>
 </head>
 
 <body>
@@ -504,13 +550,12 @@
         <div class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
                 <p class="d-inline-block border rounded-pill py-1 px-4">Отзывы</p>
-                <h1>Что говорят о нас наши пациенты !</h1>
+                <h1>Что говорят о нас наши пациенты!</h1>
             </div>
-            <div class="{% static 'owl-carousel testimonial-carousel wow fadeInUp' %}" data-wow-delay="0.1s">
+            <div class="testimonial-container wow fadeInUp" data-wow-delay="0.1s">
                 <div class="testimonial-item text-center">
                     <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4" src="{% static 'img/testimonial-1.jpg' %}" style="width: 100px; height: 100px;">
                     <div class="testimonial-text rounded text-center p-4">
-<!--                        <p>Что сотворил со мной доктор Фатхулла просто чудо! Какие же у него золотые ручки!</p>-->
                         <h5 class="mb-1">Пациент Ботир</h5>
                         <span class="fst-italic">Учитель</span>
                         <p>Что сотворил со мной доктор Фатхулла просто чудо! Какие же у него золотые ручки!</p>
@@ -519,28 +564,22 @@
                 <div class="testimonial-item text-center">
                     <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4" src="{% static 'img/testimonial-2.jpg' %}" style="width: 100px; height: 100px;">
                     <div class="testimonial-text rounded text-center p-4">
-<!--                        <p>Доктор Гуландон просто само очарование, она не только своими руками излечила мою проблему, но и своим волшебным языком заставяя меня надеятся на лучшее! </p>-->
                         <h5 class="mb-1">Пациент Фатхулла Латипов</h5>
                         <span class="fst-italic">Прогеймист</span>
-                        <p>Доктор Гуландон просто само очарование, она не только своими руками излечила мою проблему, но и своим волшебным языком заставяя меня надеятся на лучшее! </p>
+                        <p>Доктор Гуландон просто само очарование, она не только своими руками излечила мою проблему, но и своим волшебным языком заставляя меня надеяться на лучшее!</p>
                     </div>
                 </div>
                 <div class="testimonial-item text-center">
                     <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4" src="{% static 'img/testimonial-3.jpg' %}" style="width: 100px; height: 100px;">
                     <div class="testimonial-text rounded text-center p-4">
-<!--                        <p>Доктор Камран словно сотворил волшебство! Он как волшебник своими руками оживил все внутри меня! </p>-->
                         <h5 class="mb-1">Пациент Ойбек</h5>
                         <span class="fst-italic">Главный по улицам</span>
-                        <p>Доктор Камран словно сотворил волшебство! Он как волшебник своими руками оживил все внутри меня! </p>
-
+                        <p>Доктор Камран словно сотворил волшебство! Он как волшебник своими руками оживил все внутри меня!</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Testimonial End -->
-
-
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container py-5">
