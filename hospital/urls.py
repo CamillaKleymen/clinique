@@ -5,7 +5,8 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 from clinic import views
-from clinic.views import home, about, Appointment, Contact, Feature, Service, Team, Testimonial, error, mainpage
+from clinic.views import home, about, Appointment, Contact, Feature, Service, Team, Testimonial, error, mainpage, \
+    Cardiology, Ocolus, Neuro, Trauma, Stoma, Diagnos
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -19,6 +20,12 @@ urlpatterns = [
     path('team.html', Team, name='team'),
     path('testimonial.html', Testimonial, name='testimonial'),
     path('404.html', error, name='error'),
+    path('cardiology.html', Cardiology, name='cardiology'),
+    path('ocolus.html', Ocolus, name='ocolus'),
+    path('trauma.html', Trauma, name='trauma'),
+    path('stoma.html', Stoma, name='stoma'),
+    path('diagnos.html', Diagnos, name='diagnos'),
+    path('neuro.html', Neuro, name='neuro')
 
 ]
 

@@ -24,6 +24,25 @@ def Contact(request):
 
 def Feature(request):
     return render(request, 'feature.html')
+def Cardiology(request):
+    return render(request, 'cardiology.html')
+
+def Ocolus(request):
+    return render(request, 'ocolus.html')
+
+def Stoma(request):
+    return render(request, 'stoma.html')
+
+def Diagnos(request):
+    return render(request, 'diagnos.html')
+
+def Trauma(request):
+    return render(request, 'trauma.html')
+
+def Neuro(request):
+    return render(request, 'neuro.html')
+
+
 
 def Service(request):
     return render(request, 'service.html')
