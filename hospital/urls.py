@@ -6,7 +6,7 @@ from django.conf import settings
 
 from clinic import views
 from clinic.views import home, about, Appointment, Contact, Feature, Service, Team, Testimonial, error, mainpage, \
-    Cardiology, Ocolus, Neuro, Trauma, Stoma, Diagnos
+    Cardiology, Ocolus, Neuro, Trauma, Stoma, Diagnos, feedback, contact
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,8 +25,10 @@ urlpatterns = [
     path('trauma.html', Trauma, name='trauma'),
     path('stoma.html', Stoma, name='stoma'),
     path('diagnos.html', Diagnos, name='diagnos'),
-    path('neuro.html', Neuro, name='neuro')
-
+    path('neuro.html', Neuro, name='neuro'),
+    path('appointment/', views.appointment, name='appointment'),
+    path('testimonial/', feedback, name='testimonial'),
+    path('contact/', contact, name='contact'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)

@@ -251,18 +251,22 @@
     <!-- Testimonial End -->
 
 
+  <!-- Feedback Form Start -->
     <div class="feedback-form">
-            <h3 class="text-center mb-4">Оставьте свой отзыв</h3>
-            <p>Ваш отзыв важен для нас! Если у вас есть претензия по качеству обслуживания в нашей клинике оставьте внизу вашу эл.почту и наши сотрудники с отдела по работе с клиентами свяжуться с вами в тот же день!</p>
+        <h3 class="text-center mb-4">Оставьте свой отзыв</h3>
+        <p>Ваш отзыв важен для нас! Если у вас есть претензия по качеству обслуживания в нашей клинике, оставьте внизу вашу эл.почту, и наши сотрудники с отдела по работе с клиентами свяжутся с вами в тот же день!</p>
+        <form method="POST" action="{% url 'feedback' %}">
+            {% csrf_token %}
             <div class="mb-3">
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Ваша эл.почта">
+                <input type="email" class="form-control" name="email" placeholder="Ваша эл.почта" required>
             </div>
             <div class="mb-3">
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Ваше пожелание/отзыв/жалоба"></textarea>
+                <textarea class="form-control" name="message" rows="3" placeholder="Ваше пожелание/отзыв/жалоба" required></textarea>
             </div>
             <button type="submit" class="btn btn-light">Отправить</button>
+        </form>
     </div>
-
+    <!-- Feedback Form End -->
 
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">

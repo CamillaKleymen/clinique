@@ -2,7 +2,9 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView, DetailView
 from .models import Doctor, Patient, Appointment
 # from .forms import AppointmentForm
-
+from django.shortcuts import render, redirect
+from django.contrib import messages
+from telebot import TeleBot
 
 from django.shortcuts import render
 from .models import Doctor, Patient, Appointment
@@ -55,6 +57,96 @@ def Testimonial(request):
 
 def error(request):
     return render(request, '404.html')
+
+
+bot = TeleBot('7004032681:AAHroW2_ZA01ingIwYEyRmH7gM0Oo558Jl8')
+
+def appointment(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        phone = request.POST.get('phone')
+        doctor = request.POST.get('doctor')
+        date = request.POST.get('date')
+        time = request.POST.get('time')
+        problem = request.POST.get('problem')
+
+        # Формируем текст сообщения
+        message_text = f"""
+            Новая запись на прием!
+            Имя: {name}
+            Email: {email}
+            Телефон: {phone}
+            Выбранный врач: {doctor}
+            Дата: {date}
+            Время: {time}
+            Описание проблемы: {problem}
+            """
+
+        # Отправляем сообщение в Telegram
+        bot.send_message(-1002242936359, message_text)
+
+        # Добавляем сообщение об успешной записи
+        messages.success(request, 'Вы успешно записались на прием. Мы свяжемся с вами для подтверждения.')
+
+        # Перенаправляем на главную страницу
+        return redirect('/')
+    else:
+        return render(request, 'appointment.html')
+
+
+def feedback(request):
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        message = request.POST.get('message')
+
+        # Формируем текст сообщения
+        feedback_message = f"""
+            Новый отзыв!
+            Email: {email}
+            Сообщение: {message}
+        """
+
+        # Отправляем сообщение в Telegram
+        bot.send_message(-1002242936359, feedback_message)  # Замените на ваш chat_id
+
+        # Добавляем сообщение об успешной отправке
+        messages.success(request, 'Ваш отзыв успешно отправлен. Спасибо за ваш вклад!')
+
+        # Перенаправляем на главную страницу или другую страницу
+        return redirect('/')
+    else:
+        return render(request, 'testimonial.html')
+
+
+
+
+def contact(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        subject = request.POST.get('subject')
+        message = request.POST.get('message')
+
+        # Формируем текст сообщения
+        feedback_message = f"""
+            Новый отзыв!
+            Имя: {name}
+            Email: {email}
+            Тема: {subject}
+            Сообщение: {message}
+        """
+
+        # Отправляем сообщение в Telegram
+        bot.send_message(-1002242936359, feedback_message)  # Замените на ваш chat_id
+
+        # Добавляем сообщение об успешной отправке
+        messages.success(request, 'Ваш отзыв успешно отправлен. Спасибо за ваш вклад!')
+
+        # Перенаправляем на главную страницу или другую страницу
+        return redirect('/')
+    else:
+        return render(request, 'contact.html')
 
 
 # class DoctorDetailView(DetailView):
